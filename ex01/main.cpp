@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:11:02 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/13 23:35:28 by sakitaha         ###   ########.fr       */
+/*   Updated: 2024/12/13 23:44:01 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,27 @@ static void test3() {
 
   std::cout << "Original Name: " << basic.getType() << ", Sound: ";
   basic.makeSound();
-  basic.getBrain()->setIdea(0, "I am a basic cat");
+
+  try {
+    basic.getBrain()->setIdea(0, "I am a basic cat");
+  } catch (const std::out_of_range &e) {
+    std::cout << "[Exception in setIdea] " << e.what() << std::endl;
+  }
+
   {
     Cat tmp = basic;
     std::cout << "Copy Name: " << tmp.getType() << ", Sound: ";
     tmp.makeSound();
 
-    tmp.getBrain()->setIdea(0, "I am a copy cat!");
-    std::cout << "Modified Copy Brain[0]: " << tmp.getBrain()->getIdea(0)
-              << std::endl;
-    std::cout << "Original Brain[0]: " << basic.getBrain()->getIdea(0)
-              << std::endl;
+    try {
+      tmp.getBrain()->setIdea(0, "I am a copy cat!");
+      std::cout << "Modified Copy Brain[0]: " << tmp.getBrain()->getIdea(0)
+                << std::endl;
+      std::cout << "Original Brain[0]: " << basic.getBrain()->getIdea(0)
+                << std::endl;
+    } catch (const std::out_of_range &e) {
+      std::cout << "[Exception] " << e.what() << std::endl;
+    }
   }
   std::cout << "After Scope: Name: " << basic.getType() << ", Sound: ";
   basic.makeSound();
