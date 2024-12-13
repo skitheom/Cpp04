@@ -45,7 +45,4 @@ debug: $(TARGET)
 valgrind: all
 	valgrind --leak-check=full ./$(TARGET)
 
-leaks: all
-	leaks -q -atExit -- ./$(TARGET)
-
-.PHONY: all clean fclean re test debug leaks valgrind leaks
+.PHONY: all clean fclean re test debug leaks valgrind
