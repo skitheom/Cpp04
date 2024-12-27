@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:11:02 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/13 21:37:53 by sakitaha         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:37:40 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,23 @@ static void test1() {
 
 static void test2() {
   std::cout << "\n=== Test case 2: Invalid cases ===" << std::endl;
+
   const WrongAnimal *meta = new WrongAnimal();
   const WrongAnimal *i = new WrongCat();
+  const WrongCat *j = new WrongCat();
 
-  std::cout << "Meta  name: " << meta->getType() << " " << std::endl;
-  std::cout << "Cat   name: " << i->getType() << " " << std::endl;
-  std::cout << "Meta sound: ";
+  std::cout << "[WrongAnimal] Meta  name: " << meta->getType() << std::endl;
+  std::cout << "[WrongAnimal] Cat   name: " << i->getType() << std::endl;
+  std::cout << "[WrongCat]    Cat   name: " << j->getType() << std::endl;
+
+  std::cout << "[WrongAnimal] Meta sound: ";
   meta->makeSound();
-  std::cout << "Cat  sound: ";
+  std::cout << "[WrongAnimal] Cat  sound: ";
   i->makeSound();
+  std::cout << "[WrongCat]    Cat  sound: ";
+  j->makeSound();
 
+  delete j;
   delete i;
   delete meta;
 }
