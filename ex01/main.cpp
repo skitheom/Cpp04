@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:11:02 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/13 23:44:01 by sakitaha         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:55:00 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,7 @@
 
 static void test1() {
   std::cout << "\n=== Test case 1: ===" << std::endl;
-  const Animal *j = new Dog();
-  const Animal *i = new Cat();
-
-  std::cout << "Dog   name: " << j->getType() << " " << std::endl;
-  std::cout << "Cat   name: " << i->getType() << " " << std::endl;
-
-  std::cout << "Dog  sound: ";
-  j->makeSound();
-  std::cout << "Cat  sound: ";
-  i->makeSound();
-
-  delete j;
-  delete i;
-}
-
-static void test2() {
-  std::cout << "\n=== Test case 2: ===" << std::endl;
-  const size_t maxAnimalCount = 3;
+  const size_t maxAnimalCount = 7;
   Animal *animals[maxAnimalCount];
 
   for (size_t i = 0; i < maxAnimalCount; i++) {
@@ -51,6 +34,23 @@ static void test2() {
   for (size_t i = 0; i < maxAnimalCount; i++) {
     delete animals[i];
   }
+}
+
+static void test2() {
+  std::cout << "\n=== Test case 2: ===" << std::endl;
+  const Animal *j = new Dog();
+  const Animal *i = new Cat();
+
+  std::cout << "Dog   name: " << j->getType() << " " << std::endl;
+  std::cout << "Cat   name: " << i->getType() << " " << std::endl;
+
+  std::cout << "Dog  sound: ";
+  j->makeSound();
+  std::cout << "Cat  sound: ";
+  i->makeSound();
+
+  delete j;
+  delete i;
 }
 
 static void test3() {
