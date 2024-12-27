@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:49:07 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/28 03:52:40 by sakitaha         ###   ########.fr       */
+/*   Updated: 2024/12/28 04:35:46 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Character::Character() : name_("default") {
   for (int i = 0; i < kMaxMaterias; i++)
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = 0;
 }
 
 Character::Character(std::string const &name) : name_(name) {
   for (int i = 0; i < kMaxMaterias; i++)
-    this->inventory_[i] = nullptr;
+    this->inventory_[i] = 0;
 }
 
 Character::Character(const Character &other) : name_(other.name_) {
@@ -27,7 +27,7 @@ Character::Character(const Character &other) : name_(other.name_) {
     if (other.inventory_[i])
       this->inventory_[i] = other.inventory_[i]->clone();
     else
-      this->inventory_[i] = nullptr;
+      this->inventory_[i] = 0;
   }
 }
 
@@ -40,7 +40,7 @@ Character &Character::operator=(const Character &other) {
       if (other.inventory_[i])
         this->inventory_[i] = other.inventory_[i]->clone();
       else
-        this->inventory_[i] = nullptr;
+        this->inventory_[i] = 0;
     }
   }
   return *this;
@@ -67,7 +67,7 @@ void Character::equip(AMateria *m) {
 void Character::unequip(int idx) {
   if (idx < 0 || kMaxMaterias <= idx)
     return;
-  this->inventory_[idx] = nullptr;
+  this->inventory_[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter &target) {

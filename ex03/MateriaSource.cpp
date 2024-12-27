@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 22:22:32 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/28 04:05:46 by sakitaha         ###   ########.fr       */
+/*   Updated: 2024/12/28 04:35:56 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource() {
   for (int i = 0; i < kMaxMaterias; i++) {
-    this->materias_[i] = nullptr;
+    this->materias_[i] = 0;
   }
 }
 
@@ -23,7 +23,7 @@ MateriaSource::MateriaSource(const MateriaSource &other) {
     if (other.materias_[i])
       this->materias_[i] = other.materias_[i]->clone();
     else
-      this->materias_[i] = nullptr;
+      this->materias_[i] = 0;
   }
 }
 
@@ -35,7 +35,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
       if (other.materias_[i])
         this->materias_[i] = other.materias_[i]->clone();
       else
-        this->materias_[i] = nullptr;
+        this->materias_[i] = 0;
     }
   }
   return *this;
