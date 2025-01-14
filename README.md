@@ -8,16 +8,16 @@
 
 ## Exercises
 ### Exercise 00: Polymorphism
-仮想継承とポリモーフィズム
+- 仮想継承とポリモーフィズム
 
 ### Exercise 01: I do not want to set the world on fire
-deep copy
+- deep copy
 
 ### Exercise 02: Abstract class
-抽象クラスの実装
+- 抽象クラスの実装
 
 ### Exercise 03: Interface and recap
-インターフェースの実装
+- インターフェースの実装
 
 ## References
 [Orthodox canonical class form](https://www.francescmm.com/orthodox-canonical-class-form/)

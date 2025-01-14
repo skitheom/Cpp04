@@ -13,14 +13,20 @@
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 RM       := rm -f
-TARGET   := program
-SRCS     := $(wildcard *.cpp)
+NAME	 := program
+SRCS     := Animal.cpp \
+			Brain.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+			main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -29,20 +35,20 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
-test: $(TARGET)
+test: $(NAME)
 	@echo "== Running Tests  =="
-	./$(TARGET)
+	./$(NAME)
 	@echo "== Tests Completed =="
 
 debug: CXXFLAGS += -fsanitize=address -g
-debug: $(TARGET)
-	./$(TARGET)
+debug: $(NAME)
+	./$(NAME)
 
 valgrind: all
-	valgrind --leak-check=full ./$(TARGET)
+	valgrind --leak-check=full ./$(NAME)
 
 .PHONY: all clean fclean re test debug leaks valgrind
