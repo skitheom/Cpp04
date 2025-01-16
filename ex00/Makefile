@@ -12,8 +12,7 @@
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-NAME	 := animal
+NAME	 := ex00
 SRCS     := Animal.cpp \
 			Cat.cpp \
 			Dog.cpp \
