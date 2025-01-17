@@ -15,15 +15,19 @@
 
 #include "AMateria.hpp"
 
+class ICharacter;
+
 class Ice : public AMateria {
 public:
   Ice();
+  ~Ice();
+
+  AMateria *clone() const;
+  void use(ICharacter &target);
+
+private:
   Ice(const Ice &other);
   Ice &operator=(const Ice &other);
-  virtual ~Ice();
-
-  virtual AMateria *clone() const;
-  virtual void use(ICharacter &target);
 };
 
 #endif // ICE_HPP

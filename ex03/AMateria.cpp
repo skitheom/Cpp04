@@ -11,11 +11,21 @@
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
-AMateria::AMateria() : type_("unknown") {}
-
 AMateria::AMateria(std::string const &type) : type_(type) {}
+
+AMateria::~AMateria() {}
+
+std::string const &AMateria::getType() const { return this->type_; }
+
+void AMateria::use(ICharacter &target) {
+  std::cout << "* uses " << this->type_ << " materia on " << target.getName()
+            << " *" << std::endl;
+}
+
+AMateria::AMateria() : type_("unknown") {}
 
 AMateria::AMateria(const AMateria &other) : type_(other.type_) {}
 
@@ -23,12 +33,4 @@ AMateria &AMateria::operator=(const AMateria &other) {
   if (this != &other) {
   }
   return *this;
-}
-
-AMateria::~AMateria() {}
-
-std::string const &AMateria::getType() const { return this->type_; }
-
-void AMateria::use(ICharacter &target) {
-  std::cout << "* use Materia on " << target.getName() << " *" << std::endl;
 }

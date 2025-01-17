@@ -49,4 +49,4 @@ debug: $(NAME)
 valgrind: all
 	valgrind --leak-check=full ./$(NAME)
 
-.PHONY: all clean fclean re test debug leaks valgrind
+.PHONY: all clean fclean re test debug valgrind

@@ -23,11 +23,11 @@ private:
 public:
   Cat();
   Cat(const Cat &other);
-  virtual ~Cat();
+  ~Cat();
 
   Cat &operator=(const Cat &other);
 
-  virtual void makeSound() const;
+  void makeSound() const;
 
   Brain *getBrain();
   void setBrain(const Brain &brain);

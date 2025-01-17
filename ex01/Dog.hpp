@@ -23,11 +23,11 @@ private:
 public:
   Dog();
   Dog(const Dog &other);
-  virtual ~Dog();
+  ~Dog();
 
   Dog &operator=(const Dog &other);
 
-  virtual void makeSound() const;
+  void makeSound() const;
 
   Brain *getBrain();
   void setBrain(const Brain &brain);

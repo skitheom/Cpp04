@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 19:38:31 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/28 04:28:30 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/18 03:00:51 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,25 @@
 #include "MateriaSource.hpp"
 #include <iostream>
 
-static void simpleTest() {
-  std::cout << "== Simple Test ==" << std::endl;
+static void sampleTest() {
+  std::cout << "== Sample Test ==" << std::endl;
   IMateriaSource *src = new MateriaSource();
   src->learnMateria(new Ice());
   src->learnMateria(new Cure());
+
   ICharacter *me = new Character("me");
+
   AMateria *tmp;
   tmp = src->createMateria("ice");
   me->equip(tmp);
   tmp = src->createMateria("cure");
   me->equip(tmp);
+
   ICharacter *bob = new Character("bob");
+
   me->use(0, *bob);
   me->use(1, *bob);
+
   delete bob;
   delete me;
   delete src;
@@ -61,6 +66,6 @@ static void edgeCaseTest() {
 }
 
 int main() {
-  simpleTest();
+  sampleTest();
   edgeCaseTest();
 }

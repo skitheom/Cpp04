@@ -12,8 +12,7 @@
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-NAME	 := program
+NAME	 := ex03
 SRCS     := AMateria.cpp \
 			Character.cpp \
 			Cure.cpp \
@@ -38,7 +37,8 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
+test: CXXFLAGS += -DDISPLAY_MSG
+test: re
 	@echo "== Running Tests  =="
 	./$(NAME)
 	@echo "== Tests Completed =="

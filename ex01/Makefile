@@ -12,8 +12,7 @@
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
-RM       := rm -f
-NAME	 := program
+NAME	 := ex01
 SRCS     := Animal.cpp \
 			Brain.cpp \
 			Cat.cpp \
@@ -51,4 +50,4 @@ debug: $(NAME)
 valgrind: all
 	valgrind --leak-check=full ./$(NAME)
 
-.PHONY: all clean fclean re test debug leaks valgrind
+.PHONY: all clean fclean re test debug valgrind
