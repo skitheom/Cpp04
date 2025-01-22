@@ -132,6 +132,7 @@ void Character::addToStorage(AMateria *m) {
   }
   if (this->storage_[nextStorageIndex_]) {
     delete this->storage_[nextStorageIndex_];
+    this->storage_[nextStorageIndex_] = 0;
   }
   this->storage_[nextStorageIndex_] = m;
   this->nextStorageIndex_ = (nextStorageIndex_ + 1) % kMaxStorage;

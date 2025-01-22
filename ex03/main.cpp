@@ -21,6 +21,7 @@
 
 static void sampleTest() {
   std::cout << "== Sample Test ==" << std::endl;
+
   IMateriaSource *src = new MateriaSource();
   src->learnMateria(new Ice());
   src->learnMateria(new Cure());
@@ -38,7 +39,6 @@ static void sampleTest() {
   me->use(0, *bob);
   me->use(1, *bob);
 
-  delete tmp;
   delete bob;
   delete me;
   delete src;
@@ -50,13 +50,13 @@ static void edgeCaseTest() {
   IMateriaSource *src = new MateriaSource();
   src->learnMateria(new Ice());
   src->learnMateria(new Cure());
-  ICharacter *me = new Character("me");
 
-  for (int i = 0; i < 4; ++i) {
-    AMateria *tmp = src->createMateria(i % 2 == 0 ? "ice" : "cure");
-    me->equip(tmp);
-  }
+  ICharacter *me = new Character("me");
   me->equip(src->createMateria("ice"));
+  me->equip(src->createMateria("cure"));
+  me->equip(src->createMateria("ice"));
+  me->equip(src->createMateria("cure"));
+
   for (int i = -1; i < 5; i++) {
     me->use(i, *me);
   }
